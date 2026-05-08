@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신원준 포트폴리오</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/Jalnan.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', Arial, sans-serif;
+      color: #95948c;
+      background: #e6e7f4;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #9d9db3;
+      border-bottom: 2px solid #2a2a2c;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: #5e5e5e;
+      font-family: 'Jalnan', sans-serif;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .menu a:hover {
+      color: #146c94;
+    }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 80px 24px;
+      background:
+        linear-gradient(rgba(20, 108, 148, 0.72), rgba(20, 108, 148, 0.72)),
+        url("https://lh3.googleusercontent.com/sitesv/AA5AbUDcc43K-7yL_hw9zcSEXHKjI69TA2zTvrXVRWzJsdJpk7BRTm8Us8hW-gzGjQtpHlwUcq20wg-EilIQrqy_o3RTTEXXJYbuTeI8CST1o3eNKHqfA7Oo505pvq04Ff2fPjN44RmC_arxEJ7mgiCT_egz6V5O7p1X3IJX21xK3A7CxdMZLcWVTBzxsQlHgTjZEAygl1wlLOvC96O9IUrxvMcN7FVKOVP5Uha1YvU=w1280") center/cover no-repeat;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 72px);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: clamp(18px, 3vw, 28px);
+      opacity: 0.95;
+      margin-bottom: 28px;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: white;
+      color: #146c94;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 54px 24px 80px;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      color: #146c94;
+      margin-bottom: 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .profile img, .project-img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+      display: block;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+
+    .info-item strong {
+      color: #146c94;
+      min-width: 110px;
+    }
+
+    .tag-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: #e0f2fe;
+      color: #075985;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #1f2937;
+      color: white;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        justify-content: flex-start;
+      }
+
+      .profile,
+      .two-column,
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">신원준</div>
+      <ul class="menu">
+        <li><a href="#intro">Profile</a></li>
+        <li><a href="#interest">Skills</a></li>
+        <li><a href="#activity">Experience</a></li>
+        <li><a href="#project">Portfolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>신원준 포트폴리오</h1>
+      <p>자기소개 · 관심분야 · 학습 및 활동이력 · 프로젝트 결과물</p>
+      <a href="#intro">포트폴리오 보기</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="intro" class="profile">
+      <div>
+        <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCTg2fPlwp9t2zVHyUWximi3sha07f0_NmTCnucfiz6HonKX7jcr8_daMOHGBe22S7GDTXQKQDrrgkgq5-0bTdJ3eT9dDqvk4ojYHFf_xxSBQdj8sltVO2fhS9XTaeWpTGnlhiJRLb599hWRLHmZq7U3SaAZFhzGL3VROaRk7qgoeZIfhfSos_S1G8sQFxob4117JR6BKnNHDgwGqlH_mbg6j6alBCAaR7_-G8=w1280" alt="프로필 이미지">
+      </div>
+      <div class="card">
+        <h2 class="section-title">프로필😁</h2>
+        <p>웹페이지 형태로 정리한 개인 포트폴리오입니다. 기존 Google Sites 구조를 일반 HTML 파일에서 바로 실행할 수 있도록 단순화했습니다.</p>
+        <div class="info-list">
+          <div class="info-item"><strong>이름</strong><span>신원준</span></div>
+          <div class="info-item"><strong>학년</strong><span>고2</span></div>
+          <div class="info-item"><strong>취미</strong><span>운동</span></div>
+          <div class="info-item"><strong>운동 수준</strong><span>보통</span></div>
+          <div class="info-item"><strong>드론 자격증</strong><span>없음</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="interest">
+      <h2 class="section-title">관심분야</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>웹페이지 제작</h3>
+          <p>HTML과 CSS를 활용하여 정보를 보기 좋게 구성하는 활동에 관심이 있습니다.</p>
+        </div>
+        <div class="card">
+          <h3>운동</h3>
+          <p>꾸준한 운동을 통해 자기관리와 체력 향상을 실천합니다.</p>
+        </div>
+        <div class="card">
+          <h3>드론</h3>
+          <p>드론 기술과 활용 분야에 관심을 가지고 관련 지식을 탐색합니다.</p>
+        </div>
+        <div class="card">
+          <h3>포트폴리오</h3>
+          <p>학습 과정과 결과물을 누적하여 성장 과정을 기록합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="activity">
+      <h2 class="section-title">학습 및 활동이력</h2>
+      <div class="two-column">
+        <div class="card">
+          <h3>학습 활동</h3>
+          <p>웹페이지 구조, 이미지 배치, 메뉴 구성, 반응형 화면 구성 방법을 학습했습니다.</p>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">반응형 웹</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>활동 기록</h3>
+          <p>Google Sites에서 제작한 내용을 독립 실행 가능한 웹페이지로 변환하여 관리할 수 있도록 정리했습니다.</p>
+          <div class="tag-list">
+            <span class="tag">자기소개</span>
+            <span class="tag">관심분야</span>
+            <span class="tag">프로젝트</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project">
+      <h2 class="section-title">프로젝트 결과물</h2>
+      <div class="card project-card">
+        <div>
+          <h3>개인 포트폴리오 웹페이지</h3>
+          <p>기존 Google Sites에서 추출한 복잡한 코드 대신, 일반 브라우저에서 바로 열 수 있는 단일 HTML 파일로 구성했습니다.</p>
+          <p>파일 이름을 <strong>index.html</strong>로 저장하면 웹페이지처럼 사용할 수 있습니다.</p>
+        </div>
+        <img class="project-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUDPmlwLHlAgV_Z5CHqY3PhL4BLx6HqJVYhygPvm01UAe7QbF19tpjzt8SzbeH73vROs2hecXH8i5KRYyMpWEWw0P1AO2rHSqjYGX8S6Ju5YF4yfqf3Ry4ORnVXGwjxDp9s4bExjUHb4vGrUWj2sRFSm9r-EiaG85PwMwtiofHuJcHShoyegIKjDDjov1oA3wnJsn9xWP8abxLJCDFNS1b5slHYBXLKlhp_53Og=w1280" alt="프로젝트 이미지">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 신원준 포트폴리오
+  </footer>
+</body>
+</html>
